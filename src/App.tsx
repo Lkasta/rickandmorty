@@ -1,16 +1,20 @@
-import './App.css'
-import { ThemeProvider } from "@/components/theme-provider"
+import { Outlet } from "react-router-dom"
+import { AppSidebar } from "./components/app-sidebar"
+import { SidebarProvider } from "./components/ui/sidebar"
 
 
 function App() {
-
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className=''>
-        <h1>Jonas</h1>
+    <div className="flex w-[100vw]">
+      <div className="">
+        <SidebarProvider >
+          <AppSidebar />
+        </SidebarProvider>
       </div>
-    </ThemeProvider>
-
+      <div id="detail" className="flex m-5 w-full border rounded-lg p-5">
+        <Outlet />
+      </div>
+    </div>
   )
 }
 
