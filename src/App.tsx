@@ -11,7 +11,7 @@ function App() {
           <AppSidebar />
         </SidebarProvider>
       </div>
-      <div id="detail" className="flex m-5 w-full border rounded-lg p-5">
+      <div id="detail" className="flex m-5 border w-full rounded-lg p-5">
         <Outlet />
       </div>
     </div>
