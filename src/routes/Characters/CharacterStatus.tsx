@@ -1,4 +1,7 @@
-export default function CharacterStatus({ status }) {
+
+import { CharachtersProps } from "@/types/characters";
+
+export default function CharacterStatus({ status }: CharachtersProps) {
   const statusColor =
     status === "Alive" ? "bg-green-400" :
       status === "Dead" ? "bg-red-400" :
