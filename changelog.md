@@ -11,6 +11,7 @@ O formato segue as convenções de [Conventional Commits](https://www.convention
 - Inicia o projeto com setup básico do Vite
 - Criado uma base do projeto com um visual mais cru, apenas para se basear na funcioanlidade.
 - Adicionado React Router Dom
+**Personagens** Adicionado pagina com listagem de personagens
 
 ---
 
