@@ -20,7 +20,7 @@ export default function Characters() {
   useEffect(() => {
     const page = pageIndex ? Number(pageIndex) : 1; // Define página padrão como 1
     setApiUrl(`https://rickandmortyapi.com/api/character?page=${page}`);
-  }, [pageIndex]); 
+  }, [pageIndex]);
 
   useEffect(() => {
     fetch(apiUrl)
@@ -35,21 +35,24 @@ export default function Characters() {
   if (!isLoading) {
     return <div className="">Carregando</div>
   }
-  
+
   return (
     <div className="flex-col gap-5">
       <h1 className="font-bold text-3xl pb-5">
         Personagens
       </h1>
-      {info && 
-      <div className="items-end">
-        <PaginationComponent pages={info.pages} />
-      </div>
+      {info &&
+        <div className="flex justify-between items-center px-4">
+          <span>Jonas</span>
+          <div className="flex justify-center items-center">
+            <PaginationComponent pages={info.pages} />
+          </div>
+        </div>
       }
-      <div className="grid grid-cols-7 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4">
         {characters.map((character) => (
-          <div className="rounded w-40" key={character.id}>
-            <img src={character.image} alt={character.name} className="rounded" />
+          <div className="rounded w-full" key={character.id}>
+            <img src={character.image} alt={character.name} className="rounded w-full object-cover" />
             <div className="pt-2">
               <p className="truncate">{character.name}</p>
               <CharacterStatus status={character.status} />

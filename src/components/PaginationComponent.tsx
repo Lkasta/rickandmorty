@@ -1,6 +1,5 @@
 import {
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
@@ -35,49 +34,49 @@ export default function PaginationComponent({ pages }: Info) {
   }
 
   useEffect(() => {
-    if(currentPage < pages) {
+    if (currentPage < pages) {
       setIsNext(true)
-      setNext(currentPage+1)
-    }else{
-      setIsNext(true)
+      setNext(currentPage + 1)
+    } else {
+      setIsNext(false)
     }
-    if(currentPage > 1) {
+    if (currentPage > 1) {
       setIsPrev(true)
-      setPrev(currentPage-1)
+      setPrev(currentPage - 1)
+    } else {
+      setIsPrev(false)
     }
   }, [currentPage, isNext, isPrev, pages,])
 
 
   return (
-    <div className="p-2">
-      <UIPagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious onClick={handlePrevious} />
-          </PaginationItem>
-          <PaginationItem>
-            {isPrev ?
-              <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${(currentPage - 1)}`}>
-                {currentPage - 1 || 1}
-              </PaginationLink> : null
-            }
+    <UIPagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious onClick={handlePrevious} />
+        </PaginationItem>
 
-            <PaginationLink to={`/characters/${currentPage}`}>{currentPage || 1}</PaginationLink>
+        {isPrev ?
+          <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${(currentPage - 1)}`}>
+            {prev || 1}
+          </PaginationLink> : null
+        }
 
-            {isNext ?
-              <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${currentPage+1}`}>
-                A{next || 1}
-              </PaginationLink> : null
-            }
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext onClick={handleNext} />
-          </PaginationItem>
-        </PaginationContent>
-      </UIPagination>
-    </div>
+        <PaginationLink to={`/characters/${currentPage}`}>{currentPage || 1}</PaginationLink>
+
+        {isNext ?
+          <div className="flex">
+            <PaginationItem>
+              <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${currentPage + 1}`}>
+                {next || 1}
+              </PaginationLink>
+            </PaginationItem>
+          </div> : null
+        }
+        <PaginationItem>
+          <PaginationNext onClick={handleNext} />
+        </PaginationItem>
+      </PaginationContent>
+    </UIPagination>
   );
 }
