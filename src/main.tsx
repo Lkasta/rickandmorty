@@ -6,9 +6,9 @@ import {
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { ThemeProvider } from './components/theme-provider.tsx'
-import ErrorPage from './routes/errorPage.tsx';
+import { ThemeProvider } from './components/theme-provider.tsx';
 import Characters from './routes/Characters/Characters.tsx';
+import ErrorPage from './routes/ErrorPage.tsx';
 import Home from './routes/Home.tsx';
 
 const router = createBrowserRouter([
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/characters",
+        path: "/characters/:pageIndex?",
         element: <Characters />
       },
       {
