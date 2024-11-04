@@ -4,6 +4,36 @@
 
 body {
   display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(46, 46, 46); 
+  border-radius: 4px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background-color: rgb(56, 56, 56); 
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.scroll-container {
+  padding-right: 8px;
+  overflow-y: scroll;
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; 
 }
 
 @layer base {
