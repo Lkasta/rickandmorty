@@ -1,11 +1,8 @@
 import PaginationComponent from "@/components/PaginationComponent"
 import { CharachterProps, Info } from "@/types/characters"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import CharacterStatus from "./CharacterStatus"
-import { Separator } from "@/components/ui/separator"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import CheckboxComponent from "@/components/CheckboxComponent"
 
 export default function Characters() {
   const [characters, setCharacters] = useState<CharachterProps[]>([])
@@ -36,7 +33,6 @@ export default function Characters() {
     // .finally(() => { setIsLoading(false) })
   }, [apiUrl])
 
-
   return (
     <div className="flex gap-5">
       <div className="flex-col p-5">
@@ -47,7 +43,7 @@ export default function Characters() {
           Teste
         </div>
       </div>
-      <div className="flex-1 h-full flex flex-col overflow-hidden min-h-0">
+      <div className="flex-1 h-full flex flex-col min-h-0">
         {info &&
           <div className="flex justify-between items-center p-5">
             <div className="ml-auto">
@@ -58,13 +54,18 @@ export default function Characters() {
         <div className="flex-1 gap-4 min-h-0 overflow-y-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 h-max pr-5 pb-5">
             {characters.map((character) => (
-              <div className="rounded w-full h-max" key={character.id}>
-                <img src={character.image} alt={character.name} className="rounded w-full object-cover" />
-                <div className="pt-2">
-                  <p className="truncate">{character.name}</p>
-                  <CharacterStatus status={character.status} />
-                </div>
+              <div className="rounded w-full h-max cursor-pointer group" key={character.id}>
+                <Link to={`/character/${character.id}`}>
+                  <div className="rounded w-full h-min overflow-hidden relative">
+                    <img src={character.image} alt={character.name} className="group-hover:scale-110 transition-all duration-300" />
+                  </div>
+                  <div className="pt-2">
+                    <p className="truncate">{character.name}</p>
+                    <CharacterStatus status={character.status} />
+                  </div>
+                </Link>
               </div>
+
             ))}
           </div>
         </div>

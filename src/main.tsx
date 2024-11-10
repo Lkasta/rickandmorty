@@ -10,6 +10,7 @@ import { ThemeProvider } from './components/theme-provider.tsx';
 import Characters from './routes/Characters/Characters.tsx';
 import ErrorPage from './routes/ErrorPage.tsx';
 import Home from './routes/Home.tsx';
+import CharacterDetail from './routes/CharacterDetail/CharacterDetail.tsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/characters/:pageIndex?",
         element: <Characters />
+      },
+      {
+        path: "/character/:characterId",
+        element: <CharacterDetail />
       },
       {
         path: "/home",
