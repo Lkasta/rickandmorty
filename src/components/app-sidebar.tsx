@@ -26,11 +26,6 @@ const items = [
     icon: Inbox,
   },
   {
-    title: "Detalhes de personagens...",
-    url: "#",
-    icon: Inbox,
-  },
-  {
     title: "Episódios",
     url: "#",
     icon: Calendar,
