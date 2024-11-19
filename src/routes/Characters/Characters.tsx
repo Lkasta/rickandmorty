@@ -61,7 +61,7 @@ export default function Characters() {
                   </div>
                   <div className="pt-2">
                     <p className="truncate">{character.name}</p>
-                    <CharacterStatus status={character.status} />
+                    <CharacterStatus status={character.status} size="sm"/>
                   </div>
                 </Link>
               </div>

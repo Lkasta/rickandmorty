@@ -10,7 +10,7 @@ function App() {
           <AppSidebar />
         </SidebarProvider>
       </div>
-      <div id="detail" className="flex m-5 border w-full h-[96vh] rounded-lg">
+      <div id="detail" className="flex w-full bg-zinc-950">
         <Outlet />
       </div>
 
