@@ -1,6 +1,6 @@
-import { Link, useLocation } from "react-router-dom"
-import { items } from "../../lib/AppSidebarIndex"
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { items } from "../../lib/AppSidebarIndex";
 
 export default function AppIndex() {
   const location = useLocation()
@@ -11,9 +11,7 @@ export default function AppIndex() {
   const [active, setActive] = useState(false)
 
   useEffect(() => {
-    items.map((item) => {
-      item.subItems ? setActive(true) : setActive(false)
-    })
+    console.log(setActive(true))
   }, [location]);
 
   return (
