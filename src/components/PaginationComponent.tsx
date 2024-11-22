@@ -49,7 +49,7 @@ export default function PaginationComponent({ pages }: Info) {
     <UIPagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious onClick={handlePrevious} className="!border" />
+          <PaginationPrevious to="#"  onClick={handlePrevious} className="!border" />
         </PaginationItem>
 
         <PaginationItem className="!border rounded-lg">
@@ -66,7 +66,7 @@ export default function PaginationComponent({ pages }: Info) {
         </div>
 
         <PaginationItem>
-          <PaginationNext onClick={handleNext} className="!border" />
+          <PaginationNext onClick={handleNext} to="#" className="!border" />
         </PaginationItem>
       </PaginationContent>
     </UIPagination>
