@@ -1,22 +1,33 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, search, ...props }, ref,) => {
     return (
-      <input
-        type={type}
+      <div
         className={cn(
-          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          "flex items-center h-9 w-full rounded-md border bg-transparent px-3 py-1 border-gray-300 focus-within:border-gray-500",
           className
         )}
-        ref={ref}
-        {...props}
-      />
+      >
+        {search ? (
+          <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 text-zinc-500" />
+        ) : null}
+        <input
+          type={type}
+          className={cn(
+            "font-medium placeholder:font-normal bg-transparent group text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 truncate",
+            className
+          )}
+          ref={ref}
+          {...props}
+        />
+      </div>
+
     )
   }
 )

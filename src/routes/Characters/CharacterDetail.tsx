@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CharacterStatus from "./CharacterStatus";
-import { Separator } from "@radix-ui/react-separator";
 interface charcterProps {
   created: Date
   episode: []
@@ -38,9 +37,9 @@ export default function CharacterDetail() {
   }
 
   return (
-    <div className="h-full">
-      <div className="flex  gap-3 h-full divide-x">
-        <div className="flex flex-col p-5 rounded-lg overflow-hidden gap-5">
+    <div className="h-full pt-5">
+      <div className="flex gap-3 h-full divide-x">
+        <div className="flex flex-col rounded-lg overflow-hidden gap-5">
           <img
             className="rounded-lg w-64"
             src={character?.image}
