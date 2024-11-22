@@ -1,12 +1,13 @@
-import { StrictMode } from 'react'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import App from './App.tsx';
 import { ThemeProvider } from './components/theme-provider.tsx';
+import './index.css';
+import CharacterDetail from './routes/Characters/CharacterDetail.tsx';
 import Characters from './routes/Characters/Characters.tsx';
 import ErrorPage from './routes/ErrorPage.tsx';
 import Home from './routes/Home.tsx';
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         element: <Characters />
       },
       {
+        path: "/character/:characterId",
+        element: <CharacterDetail />
+      },
+      {
         path: "/home",
         element: <Home />
       },
@@ -31,7 +36,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="dark">
+    <ThemeProvider >
       <RouterProvider router={router} />
     </ThemeProvider>
   </StrictMode>,
