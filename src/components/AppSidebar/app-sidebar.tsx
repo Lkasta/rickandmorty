@@ -12,7 +12,7 @@ import { Link, useLocation } from "react-router-dom"
 import icon from "../../assets/icon.svg"
 
 import { items } from "../../lib/AppSidebarIndex"
-import { Input } from "../ui/input"
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 
 export function AppSidebar() {
   const location = useLocation()
@@ -26,8 +26,15 @@ export function AppSidebar() {
               <img src={icon} alt="Logo" className="w-8" />
               <h1 className="font-bold">Rick and Morty</h1>
             </div>
-            <Input search placeholder="Search" />
+            <div
+              className="flex items-center h-9 w-full rounded-md border bg-transparent px-3 py-1 border-gray-300 focus-within:border-gray-500"
+            >
+              <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 text-zinc-500" />
 
+              <input
+                className="font-medium placeholder:font-normal bg-transparent group text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 truncate"
+              />
+            </div>
           </SidebarHeader>
           <SidebarGroupContent>
             <SidebarMenu className="">

@@ -1,12 +1,11 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons"
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, search, ...props }, ref,) => {
+  ({ className, type, ...props }, ref,) => {
     return (
       <div
         className={cn(
@@ -14,9 +13,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className
         )}
       >
-        {search ? (
-          <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 text-zinc-500" />
-        ) : null}
         <input
           type={type}
           className={cn(
