@@ -16,8 +16,6 @@ export default function PaginationComponent({ pages }: Info) {
   const currentPage = pageIndex ? Number(pageIndex) : 1
   const [isNext, setIsNext] = useState(false)
   const [isPrev, setIsPrev] = useState(false)
-  const [next, setNext] = useState(Number)
-  const [prev, setPrev] = useState(Number)
 
   const handleNext = () => {
     if (currentPage < pages) {
@@ -36,13 +34,11 @@ export default function PaginationComponent({ pages }: Info) {
   useEffect(() => {
     if (currentPage < pages) {
       setIsNext(true)
-      setNext(currentPage + 1)
     } else {
       setIsNext(false)
     }
     if (currentPage > 1) {
       setIsPrev(true)
-      setPrev(currentPage - 1)
     } else {
       setIsPrev(false)
     }
@@ -53,28 +49,24 @@ export default function PaginationComponent({ pages }: Info) {
     <UIPagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious onClick={handlePrevious} />
+          <PaginationPrevious to="#"  onClick={handlePrevious} className="!border" />
         </PaginationItem>
 
-        {isPrev ?
-          <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${(currentPage - 1)}`}>
-            {prev || 1}
-          </PaginationLink> : null
-        }
+        <PaginationItem className="!border rounded-lg">
+          <PaginationLink to={`/characters/${currentPage}`}>{currentPage || 1}</PaginationLink>
+        </PaginationItem>
 
-        <PaginationLink to={`/characters/${currentPage}`}>{currentPage || 1}</PaginationLink>
 
-        {isNext ?
-          <div className="flex">
-            <PaginationItem>
-              <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${currentPage + 1}`}>
-                {next || 1}
-              </PaginationLink>
-            </PaginationItem>
-          </div> : null
-        }
+        <div className="flex">
+          <PaginationItem className="!border rounded-lg">
+            <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${isNext ? currentPage + 1 : currentPage}`}>
+              {isNext ? currentPage + 1 : "..."}
+            </PaginationLink>
+          </PaginationItem>
+        </div>
+
         <PaginationItem>
-          <PaginationNext onClick={handleNext} />
+          <PaginationNext onClick={handleNext} to="#" className="!border" />
         </PaginationItem>
       </PaginationContent>
     </UIPagination>
