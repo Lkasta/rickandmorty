@@ -27,6 +27,10 @@ const router = createBrowserRouter([
         element: <CharacterDetail />
       },
       {
+        path: "/scroll/",
+        element: <CharacterDetail />
+      },
+      {
         path: "/home",
         element: <Home />
       },
