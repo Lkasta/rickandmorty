@@ -8,6 +8,7 @@ O formato segue as convenções de [Conventional Commits](https://www.convention
 
 **Personagens** Foi traduzido o status de vida do personagem e criada tambem algumas variações de tamanho
 **Personagens** Traduzido o status de vida do personagem e criada tambem algumas variações de tamanho
+**AppIndex** Corrigido o bug da visualização dos links
 
 ---
 
