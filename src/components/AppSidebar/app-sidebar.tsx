@@ -38,16 +38,19 @@ export function AppSidebar() {
           </SidebarHeader>
           <SidebarGroupContent>
             <SidebarMenu className="">
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton isActive={(location.pathname).includes(item.url)} asChild>
-                    <Link to={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {items.map((item) => {
+                const isActive = location.pathname.includes(item.url) || (item.subItems && item.subItems.some(subItem => location.pathname.includes(subItem.url)));
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton isActive={isActive} asChild>
+                      <Link to={item.url}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
