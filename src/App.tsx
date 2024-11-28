@@ -6,10 +6,10 @@ import AppIndex from "./layouts/AppIndex/AppIndex"
 function App() {
   return (
     <div className="flex w-[100vw] h-full">
-      <SidebarProvider className="w-min">
+      <SidebarProvider className="w-[16rem]">
         <AppSidebar />
       </SidebarProvider>
-      <div id="detail" className="flex flex-col w-full h-full p-8">
+      <div id="detail" className="flex flex-col w-[calc(100vw-16rem)] h-full p-8">
         <AppIndex />
         <Outlet />
       </div>

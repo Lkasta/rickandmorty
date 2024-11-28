@@ -6,16 +6,6 @@ export const items = [
     title: "Home",
     url: "/home",
     icon: Home,
-    subItems: [
-      {
-        title: "Seila",
-        url: "home/"
-      },
-      {
-        title: "Joanas",
-        url: "jonas/"
-      },
-    ]
   },
   {
     id: 2,
@@ -25,13 +15,13 @@ export const items = [
     subItems: [
       {
         id: 1,
-        title: "Todos os personagens (Pags)",
+        title: "Personagens",
         url: "characters/"
       },
       {
         id: 2,
-        title: "Personagens Scroll Infinito",
-        url: "scroll/"
+        title: "Todos os personagens (Table)",
+        url: "table/"
       },
     ]
   },
