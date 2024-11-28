@@ -3,13 +3,18 @@ export interface CharachterProps {
   name?: string,
   image?: string,
   status?: 'Alive' | 'Dead' | 'unknown',
-}
-
-export type infoProps = {
-  pageIndex?: number,
+  species?: string
+  gender?: string
+  origin?: {
+    name?: string
+  }
+  location?: {
+    name?: string
+  }
 }
 
 export type Info = {
+  pageIndex?: number,
   count?: number | null,
   next?: string | '',
   pages: number | 1,

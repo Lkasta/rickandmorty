@@ -3,15 +3,21 @@
 Todas as mudanças significativas neste projeto serão documentadas aqui.  
 O formato segue as convenções de [Conventional Commits](https://www.conventionalcommits.org/) e [Versionamento Semântico](https://semver.org/).
 
-## [0.1.1] - 2024-10-24
-### Pagina de Detalhes do Personagem
+# [0.1.1]
+### Feat
 
-**Personagens** Foi traduzido o status de vida do personagem e criada tambem algumas variações de tamanho
-**Personagens** Traduzido o status de vida do personagem e criada tambem algumas variações de tamanho
+- **Personagens** Foi traduzido o status de vida do personagem e criada tambem algumas variações de tamanho
+- **Personagens** Traduzido o status de vida do personagem e criada tambem algumas variações de tamanho
+- **Personagens - Tabela** Criada a nova pagina com uma tabela com a listagem completa de personagens
+- **AppIndex** Corrigido o bug da visualização dos links
+
+### Fix
+
+- **AppIndex** Corrigida a cor do subitem ativo
 
 ---
 
-## [0.1.0] - 2024-10-24
+# [0.1.0]
 ### Inicio
 
 - Inicia o projeto com setup básico do Vite
@@ -20,25 +26,6 @@ O formato segue as convenções de [Conventional Commits](https://www.convention
 
 **Personagens** Adicionado pagina com listagem de personagens
 
----
-
-## Exemplos de Categorias
-
-- **Adicionado** Mudanças que adicionam algo novo ao projeto
-- **Corrigido** Correções de bugs ou falhas
-- **Alterado** Alterações que afetam funcionalidades sem adicionar ou remover algo
-- **Removido** Algo foi deprecado ou removido do projeto
-
----
-
-## Como Versionar
-
-- A versão segue o esquema `MAJOR.MINOR.PATCH`:
-  - **MAJOR** Mudanças que quebram compatibilidade
-  - **MINOR** Novas funcionalidades adicionadas de forma compatível
-  - **PATCH** Correções de bugs ou melhorias internas
-
----
 
 ## Comando Sugerido
 Para manter o changelog atualizado, sugiro o uso do comando:

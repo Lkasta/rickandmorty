@@ -11,6 +11,7 @@ import CharacterDetail from './routes/Characters/CharacterDetail.tsx';
 import Characters from './routes/Characters/Characters.tsx';
 import ErrorPage from './routes/ErrorPage.tsx';
 import Home from './routes/Home.tsx';
+import CharactersTable from './routes/Characters/CharactersTable.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/character/:characterId",
         element: <CharacterDetail />
+      },
+      {
+        path: "/table/",
+        element: <CharactersTable />
       },
       {
         path: "/home",

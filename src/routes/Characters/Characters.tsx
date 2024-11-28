@@ -37,7 +37,7 @@ export default function Characters() {
 
   if (isLoading) {
     return <div className="flex w-full h-full items-center justify-center">
-      <img src={loadAnimation} alt="loadd animation" className="w-20" />
+      <img src={loadAnimation} alt="loadd animation" className="w-36" />
     </div>
   }
 
