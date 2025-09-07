@@ -1,10 +1,10 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 
 export const items = [
   {
     id: 1,
     title: "Home",
-    url: "/home",
+    url: "/",
     icon: Home,
   },
   {
@@ -16,14 +16,14 @@ export const items = [
       {
         id: 1,
         title: "Personagens",
-        url: "characters/"
+        url: "characters/",
       },
       {
         id: 2,
         title: "Todos os personagens (Table)",
-        url: "table/"
+        url: "table/",
       },
-    ]
+    ],
   },
   {
     id: 3,
@@ -43,4 +43,4 @@ export const items = [
     url: "#",
     icon: Settings,
   },
-]
+];

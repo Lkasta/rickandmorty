@@ -1,17 +1,14 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import App from './App.tsx';
-import { ThemeProvider } from './components/theme-provider.tsx';
-import './index.css';
-import CharacterDetail from './routes/Characters/CharacterDetail.tsx';
-import Characters from './routes/Characters/Characters.tsx';
-import ErrorPage from './routes/ErrorPage.tsx';
-import Home from './routes/Home.tsx';
-import CharactersTable from './routes/Characters/CharactersTable.tsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App.tsx";
+import { ThemeProvider } from "./components/theme-provider.tsx";
+import "./index.css";
+import CharacterDetail from "./routes/Characters/CharacterDetail.tsx";
+import Characters from "./routes/Characters/Characters.tsx";
+import ErrorPage from "./routes/ErrorPage.tsx";
+import Home from "./routes/Home.tsx";
+import CharactersTable from "./routes/Characters/CharactersTable.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,29 +17,29 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
         path: "/characters/:pageIndex?",
-        element: <Characters />
+        element: <Characters />,
       },
       {
         path: "/character/:characterId",
-        element: <CharacterDetail />
+        element: <CharacterDetail />,
       },
       {
         path: "/table/",
-        element: <CharactersTable />
-      },
-      {
-        path: "/home",
-        element: <Home />
+        element: <CharactersTable />,
       },
     ],
   },
 ]);
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider >
+    <ThemeProvider>
       <RouterProvider router={router} />
     </ThemeProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);

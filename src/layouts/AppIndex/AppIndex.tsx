@@ -8,7 +8,12 @@ export default function AppIndex() {
   return (
     <div className="flex flex-col gap-6">
       {items.map((item) => {
-        const isActive = location.pathname.includes(item.url) || (item.subItems && item.subItems.some(subItem => location.pathname.includes(subItem.url)));
+        const isActive =
+          location.pathname == item.url ||
+          (item.subItems &&
+            item.subItems.some((subItem) =>
+              location.pathname.includes(subItem.url)
+            ));
         return (
           isActive && (
             <div key={item.id}>
@@ -17,7 +22,11 @@ export default function AppIndex() {
               {item.subItems && (
                 <div className="flex w-full items-center gap-4 border-b border-zinc-200 dark:border-zinc-700">
                   {item.subItems.map((subItem) => (
-                    <AppIndexTab title={subItem.title} url={subItem.url} />
+                    <AppIndexTab
+                      key={subItem.title}
+                      title={subItem.title}
+                      url={subItem.url}
+                    />
                   ))}
                 </div>
               )}
