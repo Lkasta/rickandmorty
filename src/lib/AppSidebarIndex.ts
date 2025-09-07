@@ -16,7 +16,7 @@ export const items = [
       {
         id: 1,
         title: "Personagens",
-        url: "characters/",
+        url: "characters",
       },
       {
         id: 2,
