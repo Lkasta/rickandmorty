@@ -9,7 +9,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Link, useLocation } from "react-router-dom";
-import icon from "../../assets/icon.svg";
+import logo from "../../../public/Rick_and_Morty.png";
 
 import { items } from "../../lib/AppSidebarIndex";
 
@@ -21,9 +21,8 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup className="p-4 gap-4">
           <SidebarHeader className="p-0 gap-4">
-            <div className="flex gap-2 items-center">
-              <img src={icon} alt="Logo" className="w-8" />
-              <h1 className="font-bold">Rick and Morty</h1>
+            <div className="flex gap-2 items-center px-2">
+              <img src={logo} alt="Logo" className="w-full" />
             </div>
           </SidebarHeader>
           <SidebarGroupContent>
@@ -37,10 +36,7 @@ export function AppSidebar() {
                     ));
                 return (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton
-                      isActive={isActive}
-                      asChild
-                    >
+                    <SidebarMenuButton isActive={isActive} asChild>
                       <Link to={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
