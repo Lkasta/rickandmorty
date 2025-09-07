@@ -38,7 +38,6 @@ export function AppSidebar() {
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
-                      className="focus:bg-emerald-500"
                       isActive={isActive}
                       asChild
                     >
