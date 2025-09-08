@@ -1,4 +1,4 @@
-import { CharachterProps, InfoProps } from "@/types/characters";
+import { CharacterProps, InfoProps } from "@/types/characters";
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import loadAnimation from "../../assets/loadPortal-unscreen.gif";
@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function CharactersTable() {
   const [isLoading, setIsLoading] = useState(true);
-  const [characters, setCharacters] = useState<CharachterProps[]>([]);
+  const [characters, setCharacters] = useState<CharacterProps[]>([]);
   const [info, setInfo] = useState<InfoProps | null>(null);
   const [apiUrl, setApiUrl] = useState<string | null>(
     "https://rickandmortyapi.com/api/character?page=1"
@@ -22,7 +22,7 @@ export default function CharactersTable() {
       .then((data) => {
         setCharacters((prevCharacters) => {
           const newCharacters = data.results.filter(
-            (character: CharachterProps) =>
+            (character: CharacterProps) =>
               !prevCharacters.some((c) => c.id === character.id)
           );
           return [...prevCharacters, ...newCharacters];

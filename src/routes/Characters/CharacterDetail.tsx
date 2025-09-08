@@ -1,43 +1,32 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CharacterStatus from "./CharacterStatus";
-interface charcterProps {
-  created: Date
-  episode: []
-  gender: "female" | "male" | "genderless" | "unknown"
-  id: number
-  image: string
-  location: []
-  name: string
-  origin: string
-  species: string
-  status: 'Alive' | 'Dead' | 'unknown'
-  type: string
-  url: string
-}
+import { CharacterProps } from "@/types/characters";
 
 export default function CharacterDetail() {
   const { characterId } = useParams();
-  const [isLaoding, setIsLoading] = useState(Boolean)
-  const [character, setCharacter] = useState<charcterProps>()
+  const [isLaoding, setIsLoading] = useState(Boolean);
+  const [character, setCharacter] = useState<CharacterProps>();
 
-  const apiUrl = `https://rickandmortyapi.com/api/character/${characterId}`
+  const apiUrl = `https://rickandmortyapi.com/api/character/${characterId}`;
 
   useEffect(() => {
     fetch(apiUrl)
-      .then(response => response.json().then(response => response))
-      .then(data => {
-        setCharacter(data)
+      .then((response) => response.json().then((response) => response))
+      .then((data) => {
+        setCharacter(data);
       })
-      .finally(() => { setIsLoading(true) })
-  }, [apiUrl])
+      .finally(() => {
+        setIsLoading(true);
+      });
+  }, [apiUrl]);
 
-  if (!isLaoding) {
-    return <p className="p-5">Carregando</p>
+  if (!isLaoding || !character) {
+    return <p className="p-5">Carregando</p>;
   }
 
   return (
-    <div className="h-full pt-5">
+    <div className="h-full">
       <div className="flex gap-3 h-full divide-x">
         <div className="flex flex-col rounded-lg overflow-hidden gap-5">
           <img
@@ -47,12 +36,10 @@ export default function CharacterDetail() {
           />
           <div className="flex flex-col pt-2 gap-2">
             <p className="text-3xl font-medium">{character?.name}</p>
-            <CharacterStatus status={character?.status} size="md" />
+            <CharacterStatus status={character.status} size="md" />
           </div>
-
         </div>
       </div>
     </div>
-  )
-
+  );
 }

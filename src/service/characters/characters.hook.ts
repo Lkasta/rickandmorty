@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getCharacters } from "./characters";
-import { CharachterProps, InfoProps } from "@/types/characters";
+import { CharacterProps, InfoProps } from "@/types/characters";
 
 export function useCharacters(page = 1) {
-  const [characters, setCharacters] = useState<CharachterProps[]>([]);
+  const [characters, setCharacters] = useState<CharacterProps[]>([]);
   const [info, setInfo] = useState<InfoProps>();
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);

@@ -1,11 +1,11 @@
 export type CharactersResponseProps = {
   info: InfoProps;
-  results: CharachterProps[];
+  results: CharacterProps[];
 };
 
 export type CharacterStatusProps = "Alive" | "Dead" | "unknown";
 
-export interface CharachterProps {
+export interface CharacterProps {
   id: number;
   name: string;
   image: string;
