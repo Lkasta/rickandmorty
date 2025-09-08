@@ -1,27 +1,14 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CharacterStatus from "./CharacterStatus";
-import { CharacterProps } from "@/types/characters";
+import { useCharacter } from "@/service/characters/characters.hook";
 
 export default function CharacterDetail() {
   const { characterId } = useParams();
-  const [isLaoding, setIsLoading] = useState(Boolean);
-  const [character, setCharacter] = useState<CharacterProps>();
+  const { character, loading } = useCharacter(Number(characterId));
 
-  const apiUrl = `https://rickandmortyapi.com/api/character/${characterId}`;
+  console.log(characterId, character, loading);
 
-  useEffect(() => {
-    fetch(apiUrl)
-      .then((response) => response.json().then((response) => response))
-      .then((data) => {
-        setCharacter(data);
-      })
-      .finally(() => {
-        setIsLoading(true);
-      });
-  }, [apiUrl]);
-
-  if (!isLaoding || !character) {
+  if (loading || !character) {
     return <p className="p-5">Carregando</p>;
   }
 

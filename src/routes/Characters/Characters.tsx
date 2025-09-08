@@ -5,7 +5,7 @@ import loadAnimation from "../../assets/loadPortal-unscreen.gif";
 import { useCharacters } from "@/service/characters/characters.hook";
 
 export default function Characters() {
-  const { pageIndex } = useParams<{ pageIndex: string }>();
+  const { pageIndex } = useParams();
   const { characters, info, loading } = useCharacters(Number(pageIndex));
 
   if (!characters || !info || loading) {
