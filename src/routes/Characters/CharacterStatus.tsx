@@ -1,6 +1,7 @@
-import { CharachterProps } from "@/types/characters";
+import { CharacterStatusProps } from "@/types/characters";
 
-interface StatusSize {
+interface Props {
+  status: CharacterStatusProps;
   size: "sm" | "md" | "lg";
   styleSize: {
     fontSize: string;
@@ -8,10 +9,7 @@ interface StatusSize {
   };
 }
 
-export default function CharacterStatus({
-  status,
-  size,
-}: CharachterProps & { size: StatusSize["size"] }) {
+export default function CharacterStatus({ status, size }: Props) {
   const statusColor =
     status === "Alive"
       ? "bg-emerald-400 animation-pulse"
