@@ -11,11 +11,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function PaginationComponent({ pages = 0 }: Partial<InfoProps>) {
+  const [isNext, setIsNext] = useState(false);
+  const [isPrev, setIsPrev] = useState(false);
+
   const navigate = useNavigate();
   const { pageIndex } = useParams<{ pageIndex: string }>();
   const currentPage = pageIndex ? Number(pageIndex) : 1;
-  const [isNext, setIsNext] = useState(false);
-  const [isPrev, setIsPrev] = useState(false);
 
   const handleNext = () => {
     if (currentPage < pages) {
@@ -51,7 +52,7 @@ export default function PaginationComponent({ pages = 0 }: Partial<InfoProps>) {
           <PaginationPrevious
             to="#"
             onClick={handlePrevious}
-            className="!border"
+            className={`!border ${!isPrev && "opacity-20 cursor-default"}`}
           />
         </PaginationItem>
 
@@ -64,7 +65,7 @@ export default function PaginationComponent({ pages = 0 }: Partial<InfoProps>) {
         <div className="flex">
           <PaginationItem className="!border rounded-lg">
             <PaginationLink
-              className="opacity-30 hover:opacity-100 transition-all"
+              className="opacity-50 hover:opacity-100 transition-all"
               to={`/characters/${isNext ? currentPage + 1 : currentPage}`}
             >
               {isNext ? currentPage + 1 : "..."}
@@ -73,7 +74,11 @@ export default function PaginationComponent({ pages = 0 }: Partial<InfoProps>) {
         </div>
 
         <PaginationItem>
-          <PaginationNext onClick={handleNext} to="#" className="!border" />
+          <PaginationNext
+            onClick={handleNext}
+            to="#"
+            className={`!border ${!isNext && "opacity-20 cursor-default"}`}
+          />
         </PaginationItem>
       </PaginationContent>
     </UIPagination>

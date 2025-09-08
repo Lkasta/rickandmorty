@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getCharacters } from "./characters";
 import { CharachterProps, InfoProps } from "@/types/characters";
 
-export function useCharacters() {
+export function useCharacters(page = 1) {
   const [characters, setCharacters] = useState<CharachterProps[]>([]);
   const [info, setInfo] = useState<InfoProps>();
   const [error, setError] = useState<Error | null>(null);
@@ -11,7 +11,7 @@ export function useCharacters() {
   useEffect(() => {
     async function fetchCharacters() {
       try {
-        const data = await getCharacters();
+        const data = await getCharacters(page);
 
         setCharacters(data.results);
         setInfo(data.info);
@@ -27,7 +27,7 @@ export function useCharacters() {
     }
 
     fetchCharacters();
-  }, []);
+  }, [page]);
 
   return { characters, info, error, loading };
 }

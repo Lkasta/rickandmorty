@@ -1,11 +1,12 @@
 import PaginationComponent from "@/components/PaginationComponent";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CharacterStatus from "./CharacterStatus";
 import loadAnimation from "../../assets/loadPortal-unscreen.gif";
 import { useCharacters } from "@/service/characters/characters.hook";
 
 export default function Characters() {
-  const { characters, info, loading } = useCharacters();
+  const { pageIndex } = useParams<{ pageIndex: string }>();
+  const { characters, info, loading } = useCharacters(Number(pageIndex));
 
   if (!characters || !info || loading) {
     return (
