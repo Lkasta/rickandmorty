@@ -5,61 +5,68 @@ import {
   PaginationNext,
   PaginationPrevious,
   Pagination as UIPagination,
-} from "@/components/ui/pagination"
-import { Info } from "@/types/characters"
-import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+} from "@/components/ui/pagination";
+import { InfoProps } from "@/types/characters";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function PaginationComponent({ pages }: Info) {
-  const navigate = useNavigate()
-  const { pageIndex } = useParams<{ pageIndex: string }>()
-  const currentPage = pageIndex ? Number(pageIndex) : 1
-  const [isNext, setIsNext] = useState(false)
-  const [isPrev, setIsPrev] = useState(false)
+export default function PaginationComponent({ pages = 0 }: Partial<InfoProps>) {
+  const navigate = useNavigate();
+  const { pageIndex } = useParams<{ pageIndex: string }>();
+  const currentPage = pageIndex ? Number(pageIndex) : 1;
+  const [isNext, setIsNext] = useState(false);
+  const [isPrev, setIsPrev] = useState(false);
 
   const handleNext = () => {
     if (currentPage < pages) {
-      setIsNext(false)
-      navigate(`/characters/${currentPage + 1}`)
+      setIsNext(false);
+      navigate(`/characters/${currentPage + 1}`);
     }
-  }
+  };
 
   const handlePrevious = () => {
     if (currentPage > 1) {
-      setIsPrev(false)
-      navigate(`/characters/${currentPage - 1}`)
+      setIsPrev(false);
+      navigate(`/characters/${currentPage - 1}`);
     }
-  }
+  };
 
   useEffect(() => {
     if (currentPage < pages) {
-      setIsNext(true)
+      setIsNext(true);
     } else {
-      setIsNext(false)
+      setIsNext(false);
     }
     if (currentPage > 1) {
-      setIsPrev(true)
+      setIsPrev(true);
     } else {
-      setIsPrev(false)
+      setIsPrev(false);
     }
-  }, [currentPage, isNext, isPrev, pages,])
-
+  }, [currentPage, isNext, isPrev, pages]);
 
   return (
     <UIPagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious to="#"  onClick={handlePrevious} className="!border" />
+          <PaginationPrevious
+            to="#"
+            onClick={handlePrevious}
+            className="!border"
+          />
         </PaginationItem>
 
         <PaginationItem className="!border rounded-lg">
-          <PaginationLink to={`/characters/${currentPage}`}>{currentPage || 1}</PaginationLink>
+          <PaginationLink to={`/characters/${currentPage}`}>
+            {currentPage || 1}
+          </PaginationLink>
         </PaginationItem>
-
 
         <div className="flex">
           <PaginationItem className="!border rounded-lg">
-            <PaginationLink className="opacity-30 hover:opacity-100 transition-all" to={`/characters/${isNext ? currentPage + 1 : currentPage}`}>
+            <PaginationLink
+              className="opacity-30 hover:opacity-100 transition-all"
+              to={`/characters/${isNext ? currentPage + 1 : currentPage}`}
+            >
               {isNext ? currentPage + 1 : "..."}
             </PaginationLink>
           </PaginationItem>

@@ -23,7 +23,7 @@ export interface CharachterProps {
 export type InfoProps = {
   pageIndex: number;
   count: number;
-  next: string;
   pages: number;
+  next: string;
   prev: string;
 };

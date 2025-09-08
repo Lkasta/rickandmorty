@@ -3,7 +3,7 @@ import { CharacterStatusProps } from "@/types/characters";
 interface Props {
   status: CharacterStatusProps;
   size: "sm" | "md" | "lg";
-  styleSize: {
+  styleSize?: {
     fontSize: string;
     iconSize: string;
   };
