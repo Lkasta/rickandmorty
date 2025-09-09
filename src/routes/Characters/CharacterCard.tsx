@@ -1,25 +1,42 @@
-import { CharacterProps } from "@/types/characters";
 import { Link } from "react-router-dom";
-import CharacterStatus from "./CharacterStatus";
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import CharacterStatus from "./CharacterStatus";
+import { CharacterProps } from "@/types/characters";
 
-export function CharacterCard({
-  id,
-  image,
-  name,
-  status,
-}: Pick<CharacterProps, "id" | "image" | "name" | "status">) {
-  const [isLiked, setIsLiked] = useState(false);
+import { useDispatch, useSelector } from "react-redux";
+import rootReducer from "@/store/root-reducer";
+export type RootState = ReturnType<typeof rootReducer>;
+
+interface Props
+  extends Pick<CharacterProps, "id" | "image" | "name" | "status"> {
+  isLiked: boolean;
+}
+
+export function CharacterCard({ id, image, name, status, isLiked }: Props) {
+  const dispatch = useDispatch();
+  const { favorites } = useSelector(
+    (state: RootState) => state.characterdReducer
+  );
 
   const handleLike = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsLiked(!isLiked);
 
-    console.log(`${isLiked ? "Unliked" : "Liked"} character: ${name}`);
+    if (!isLiked) {
+      dispatch({
+        type: "character/favorite",
+        payload: [...favorites, id],
+      });
+    } else {
+      const payload = favorites.filter((val) => val != id);
+      dispatch({
+        type: "character/favorite",
+        payload: payload,
+      });
+    }
   };
+
   return (
     <Link to={`/character/${id}`} className="relative group">
       <div className="rounded w-auto h-auto overflow-hidden relative group">
