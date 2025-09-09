@@ -1,4 +1,6 @@
-type CharacterAction = { type: "character/favorite"; payload: number[] };
+type CharacterAction =
+  | { type: "character/favorite"; payload: number[] }
+  | { type: "character/unfavorite"; payload: number };
 
 interface CharacterState {
   favorites: number[];
@@ -14,6 +16,10 @@ const charactersReducer = (state = initialState, action: CharacterAction) => {
   }
 
   if (action.type === "character/unfavorite") {
+    return {
+      ...state,
+      favorites: state.favorites.filter((id) => id !== action.payload),
+    };
   }
 
   return state;
