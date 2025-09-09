@@ -16,7 +16,7 @@ interface Props
 export function CharacterCard({ id, image, name, status, isLiked }: Props) {
   const dispatch = useDispatch();
   const { favorites } = useSelector(
-    (state: RootState) => state.characterdReducer
+    (state: RootState) => state.charactersReducer
   );
 
   const handleLike = (e: React.MouseEvent) => {

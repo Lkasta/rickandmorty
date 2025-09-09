@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import "./index.css";
-import CharacterDetail from "./routes/Characters/CharacterDetail.tsx";
+import charactersetail from "./routes/Characters/charactersetail.tsx";
 import Characters from "./routes/Characters/Characters.tsx";
 import ErrorPage from "./routes/ErrorPage.tsx";
 import Home from "./routes/Home.tsx";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/character/:characterId",
-        element: <CharacterDetail />,
+        element: <charactersetail />,
       },
       {
         path: "/table/",

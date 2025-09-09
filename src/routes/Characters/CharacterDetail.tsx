@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import CharacterStatus from "./CharacterStatus";
 import { useCharacter } from "@/service/characters/characters.hook";
 
-export default function CharacterDetail() {
+export default function charactersetail() {
   const { characterId } = useParams();
   const { character, loading } = useCharacter(Number(characterId));
 

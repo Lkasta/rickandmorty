@@ -10,7 +10,7 @@ export default function Characters() {
   const { characters, info, loading } = useCharacters(Number(pageIndex));
 
   const { favorites } = useSelector(
-    (state: RootState) => state.characterdReducer
+    (state: RootState) => state.charactersReducer
   );
 
   if (!characters || !info || loading) {

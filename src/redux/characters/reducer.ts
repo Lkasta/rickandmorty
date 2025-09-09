@@ -8,12 +8,15 @@ const initialState: CharacterState = {
   favorites: [1],
 };
 
-const characterdReducer = (state = initialState, action: CharacterAction) => {
+const charactersReducer = (state = initialState, action: CharacterAction) => {
   if (action.type === "character/favorite") {
     return { ...state, favorites: action.payload };
+  }
+
+  if (action.type === "character/unfavorite") {
   }
 
   return state;
 };
 
-export default characterdReducer;
+export default charactersReducer;
