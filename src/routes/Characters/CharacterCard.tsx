@@ -29,10 +29,9 @@ export function CharacterCard({ id, image, name, status, isLiked }: Props) {
         payload: [...favorites, id],
       });
     } else {
-      const payload = favorites.filter((val) => val != id);
       dispatch({
-        type: "character/favorite",
-        payload: payload,
+        type: "character/unfavorite",
+        payload: id,
       });
     }
   };

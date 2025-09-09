@@ -6,8 +6,6 @@ export default function CharactersDetails() {
   const { characterId } = useParams();
   const { character, loading } = useCharacter(Number(characterId));
 
-  console.log(characterId, character, loading);
-
   if (loading || !character) {
     return <p className="p-5">Carregando</p>;
   }
