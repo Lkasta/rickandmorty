@@ -1,6 +1,6 @@
 import PaginationComponent from "@/components/PaginationComponent";
 import { useParams } from "react-router-dom";
-import loadAnimation from "../../assets/loadPortal-unscreen.gif";
+import loadAnimation from "../../assets/loadPortal.gif";
 import { useCharacters } from "@/service/characters/characters.hook";
 import { CharacterCard, RootState } from "./CharacterCard";
 import { useSelector } from "react-redux";

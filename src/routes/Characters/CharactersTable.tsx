@@ -1,7 +1,7 @@
 import { CharacterProps, InfoProps } from "@/types/characters";
 import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
-import loadAnimation from "../../assets/loadPortal-unscreen.gif";
+import loadAnimation from "../../assets/loadPortal.gif";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function CharactersTable() {
