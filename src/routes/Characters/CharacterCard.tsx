@@ -6,6 +6,7 @@ import { CharacterProps } from "@/types/characters";
 
 import { useDispatch, useSelector } from "react-redux";
 import rootReducer from "@/store/root-reducer";
+import CharacterActionsTypes from "@/redux/characters/action-types";
 export type RootState = ReturnType<typeof rootReducer>;
 
 interface Props
@@ -25,12 +26,12 @@ export function CharacterCard({ id, image, name, status, isLiked }: Props) {
 
     if (!isLiked) {
       dispatch({
-        type: "character/favorite",
+        type: CharacterActionsTypes.FAVORITE,
         payload: [...favorites, id],
       });
     } else {
       dispatch({
-        type: "character/unfavorite",
+        type: CharacterActionsTypes.UNFAVORITE,
         payload: id,
       });
     }
