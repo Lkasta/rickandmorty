@@ -10,6 +10,9 @@ import ErrorPage from "./routes/ErrorPage.tsx";
 import Home from "./routes/Home.tsx";
 import CharactersTable from "./routes/Characters/CharactersTable.tsx";
 
+import { Provider } from "react-redux";
+import store from "./store/store.ts";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,8 +41,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </Provider>
   </StrictMode>
 );
