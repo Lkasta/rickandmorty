@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import "./index.css";
-import charactersetail from "./routes/Characters/charactersetail.tsx";
 import Characters from "./routes/Characters/Characters.tsx";
 import ErrorPage from "./routes/ErrorPage.tsx";
 import Home from "./routes/Home.tsx";
+import CharactersDetails from "./routes/Characters/CharacterDetail.tsx";
 import CharactersTable from "./routes/Characters/CharactersTable.tsx";
 
 import { Provider } from "react-redux";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/character/:characterId",
-        element: <charactersetail />,
+        element: <CharactersDetails />,
       },
       {
         path: "/table/",
