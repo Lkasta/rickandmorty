@@ -21,7 +21,7 @@ export function CharacterCard({
     console.log(`${isLiked ? "Unliked" : "Liked"} character: ${name}`);
   };
   return (
-    <Link key={id} to={`/character/${id}`} className="relative group">
+    <Link to={`/character/${id}`} className="relative group">
       <div className="rounded w-auto h-auto overflow-hidden relative group">
         <img
           src={image}
@@ -37,9 +37,7 @@ export function CharacterCard({
         variant="ghost"
         onClick={handleLike}
         className={`top-2 right-2 absolute w-min h-min bg-white p-1.5 rounded-full z-50 ${
-          isLiked
-            ? "opacity-100"
-            : "group-hover:opacity-100 opacity-0"
+          isLiked ? "opacity-100" : "group-hover:opacity-100 opacity-0"
         }`}
       >
         <Heart

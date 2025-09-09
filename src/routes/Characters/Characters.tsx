@@ -42,6 +42,7 @@ export default function Characters() {
           <div className="grid grid-cols-2 pb-16 h-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-4 pr-5">
             {characters.map((character) => (
               <CharacterCard
+                key={character.id}
                 id={character.id}
                 name={character.name}
                 status={character.status}
